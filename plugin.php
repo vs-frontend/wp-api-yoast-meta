@@ -7,7 +7,7 @@ add_action( 'plugins_loaded', 'WPAPIYoast_init' );
  * Description: Adds Yoast fields to page and post metadata to WP REST API responses
  * Author: Niels Garve, Pablo Postigo, Tedy Warsitha, Charlie Francis
  * Author URI: https://github.com/niels-garve
- * Version: 1.4.1
+ * Version: 1.4.2
  * Plugin URI: https://github.com/niels-garve/yoast-to-rest-api
  */
 class Yoast_To_REST_API {
@@ -28,7 +28,10 @@ class Yoast_To_REST_API {
 		'yoast_wpseo_opengraph-image',
 		'yoast_wpseo_twitter-title',
 		'yoast_wpseo_twitter-description',
-		'yoast_wpseo_twitter-image'
+		'yoast_wpseo_twitter-image',
+		'yoast_wpseo_facebook-image',
+		'yoast_wpseo_facebook-title',
+		'yoast_wpseo_facebook-description'
 	);
 
 	function __construct() {
