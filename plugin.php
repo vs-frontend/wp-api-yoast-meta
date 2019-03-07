@@ -28,10 +28,7 @@ class Yoast_To_REST_API {
 		'yoast_wpseo_opengraph-image',
 		'yoast_wpseo_twitter-title',
 		'yoast_wpseo_twitter-description',
-		'yoast_wpseo_twitter-image',
-		'yoast_wpseo_opengraph-title',
-		'yoast_wpseo_opengraph-description',
-		'yoast_wpseo_opengraph-image'		
+		'yoast_wpseo_twitter-image'		
 	);
 
 	function __construct() {
