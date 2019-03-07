@@ -29,9 +29,9 @@ class Yoast_To_REST_API {
 		'yoast_wpseo_twitter-title',
 		'yoast_wpseo_twitter-description',
 		'yoast_wpseo_twitter-image',
-		'yoast_wpseo_facebook-image',
 		'yoast_wpseo_facebook-title',
-		'yoast_wpseo_facebook-description'
+		'yoast_wpseo_facebook-description',
+		'yoast_wpseo_facebook-image'		
 	);
 
 	function __construct() {
@@ -135,6 +135,17 @@ class Yoast_To_REST_API {
 			'yoast_wpseo_canonical' => $wpseo_frontend->canonical( false ),
 		);
 
+		/**
+		 * Filter the returned yoast meta.
+		 *
+		 * @since 1.4.2
+		 * @param array $yoast_meta Array of metadata to return from Yoast.
+		 * @param \WP_Post $p The current post object.
+		 * @param \WP_REST_Request $request The REST request.
+		 * @return array $yoast_meta Filtered meta array.
+		 */
+		$yoast_meta = apply_filters( 'wpseo_to_api_yoast_meta', $yoast_meta, $p, $request );
+
 		wp_reset_query();
 
 		return (array) $yoast_meta;
@@ -148,6 +159,15 @@ class Yoast_To_REST_API {
 			'yoast_wpseo_title'    => $wpseo_frontend->get_taxonomy_title(),
 			'yoast_wpseo_metadesc' => $wpseo_frontend->metadesc( false ),
 		);
+
+		/**
+		 * Filter the returned yoast meta for a taxonomy.
+		 *
+		 * @since 1.4.2
+		 * @param array $yoast_meta Array of metadata to return from Yoast.
+		 * @return array $yoast_meta Filtered meta array.
+		 */
+		$yoast_meta = apply_filters( 'wpseo_to_api_yoast_taxonomy_meta', $yoast_meta );
 
 		return (array) $yoast_meta;
 	}
